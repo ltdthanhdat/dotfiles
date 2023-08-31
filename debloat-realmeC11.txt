@@ -1,0 +1,53 @@
+pm uninstall -k --user 0 com.oppo.music
+pm uninstall -k --user 0 com.heytap.pictorial
+pm uninstall -k --user 0 com.google.ar.core
+pm uninstall -k --user 0 com.coloros.focusmode
+pm uninstall -k --user 0 com.coloros.healthcheck
+pm uninstall -k --user 0 com.heytap.cloud
+pm uninstall -k --user 0 com.nearme.atlas
+pm uninstall -k --user 0 com.coloros.weather.service
+pm uninstall -k --user 0 com.coloros.video
+pm uninstall -k --user 0 com.heytap.usercenter
+pm uninstall -k --user 0 com.google.android.projection.gearhead
+pm uninstall -k --user 0 com.google.android.apps.walletnfcrel
+pm uninstall -k --user 0 com.google.android.partnersetup
+pm uninstall -k --user 0 com.coloros.compass2
+pm uninstall -k --user 0 com.nearme.gamecenter
+pm uninstall -k --user 0 com.oppo.operationManual
+pm uninstall -k --user 0 com.coloros.backuprestore
+pm uninstall -k --user 0 com.google.android.apps.photos
+pm uninstall -k --user 0 com.google.android.onetimeinitializer
+pm uninstall -k --user 0 com.coloros.ocrscanner
+pm uninstall -k --user 0 com.heytap.browser
+pm uninstall -k --user 0 com.android.fmradio
+pm uninstall -k --user 0 com.coloros.oshare
+pm uninstall -k --user 0 com.coloros.weather2
+pm uninstall -k --user 0 com.google.android.apps.googleassistant
+pm uninstall -k --user 0 com.coloros.lockassistant
+pm uninstall -k --user 0 com.coloros.gamespace
+pm uninstall –k ––user 0 com.coloros.gamespaceui
+pm uninstall -k --user 0 com.coloros.securepay
+pm uninstall -k --user 0 com.coloros.childrenspace
+pm uninstall -k --user 0 com.coloros.activation
+pm uninstall -k --user 0 com.heytap.mcs
+pm uninstall -k --user 0 com.heytap.cast
+pm uninstall -k --user 0 com.heytap.music
+pm uninstall -k --user 0 com.heytap.openid
+pm uninstall -k --user 0 com.heytap.datamigration
+pm uninstall –k ––user 0 com.heytap.synergy
+pm uninstall –k ––user 0 com.opos.cs
+pm uninstall –k ––user 0 com.redteamobile.roaming
+pm uninstall –k ––user 0 com.coloros.assistantscreen
+pm disable–user ––user 0 com.heytap.themestore
+pm uninstall –k ––user 0 com.google.android.apps.nbu.paisa.user
+pm uninstall –k ––user 0 com.google.android.marvin.talkback
+pm uninstall –k ––user 0 com.facebook.appmanager
+pm uninstall –k ––user 0 com.facebook.services
+pm uninstall –k ––user 0 com.facebook.system
+pm disable–user ––user 0 com.heytap.market
+pm uninstall -k --user 0 com.oppo.quicksearchbox
+pm uninstall -k --user 0 com.coloros.phonemanager
+pm uninstall -k --user 0 com.coloros.filemanager
+
+cmd package install-existing com.coloros.filemanager
+
