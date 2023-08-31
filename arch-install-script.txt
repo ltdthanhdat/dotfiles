@@ -1,0 +1,98 @@
+setfont ter-132b
+
+--use wifi
+iwctl
+device list
+station devicename scan
+station devicename get-networks
+station devicename connect wifiname
+station devicename show
+quit
+
+--test internet
+ping google.com
+
+--sync time
+timedatectl set-ntp true
+
+--partitioning
+fdisk -l
+cfdisk /dev/sda (cfdisk /dev/nvme0n1)
+(create 1GB EFI system
+create (more than 10GB) root
+create 10GB swap)
+
+--formating partitions
+fdisk -l
+mkfs.fat -F32 /dev/(efi)
+mkfs.ext4 /dev/(root)
+mkswap /dev/(swap)
+swapon /dev/(swap)
+
+--mounting partitions
+mount /dev/(root) /mnt
+mkdir /mnt/boot
+mount /dev/(efi) /mnt/boot
+
+--install base system
+pacstrap /mnt base base-devel linux linux-firmware linux-headers neovim git intel-ucode networkmanager network-manager-applet bluez bluez-utils blueman
+
+--genfstab
+genfstab -U /mnt >> /mnt/etc/fstab
+
+--enter chroot(arch installation)
+arch-chroot /mnt
+
+--settimezone
+ln -sf /usr/share/zoneinfo/(urcountry)/(urcity) /etc/localtime
+hwclock --systohc
+
+--setting locale
+nvim /etc/locale.gen
+(Uncomment en_US.UTF-8 UTF-8)
+locale-gen
+echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+
+--setting hostname
+echo "arch" > /etc/hostname
+nvim /etc/hosts 
+((type in that file)
+127.0.0.1 localhost
+::1  localhost
+127.0.1.1 arch.localdomain arch)
+
+--Setting user
+passwd
+useradd -m (username)
+passwd (username)
+usermod -aG wheel,storage,power,audio (username)
+nvim /etc/sudoers
+(uncomment %wheel ALL=(ALL) ALL)
+
+--Install Bootloader
+pacman -S grub efibootmgr os-prober ntfs-3g
+mkdir /mnt/windows
+fdisk -l (note first efi partition)
+mount /dev/(windowsefi) /mnt/windows
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB 
+grub-mkconfig -o /boot/grub/grub.cfg
+
+--Install audio, display drivers
+pacman -S pulseaudio xorg xorg-xinit xf86-video-intel
+
+exit
+reboot
+
+sudo pacman -S awesome
+nvim ~/.xinitrc (write: exec awesome)
+cp /etc/xdg/awesome/rc.lua ~/.config/awesome/rc.lua
+cp /usr/share/awesome/themes/default/theme.lua ~/.config/awesome/theme.lua
+
+--add windows to grub
+sudo mount /dev/(windowsefi) /mnt/windows
+sudo nvim /etc/default/grub (uncomment last line)
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+--set monitor's resolution
+xrandr | grep connected
+xrandr --output monitor_name --mode 1920x1080
