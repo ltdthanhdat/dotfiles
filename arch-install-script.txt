@@ -92,7 +92,3 @@ cp /usr/share/awesome/themes/default/theme.lua ~/.config/awesome/theme.lua
 sudo mount /dev/(windowsefi) /mnt/windows
 sudo nvim /etc/default/grub (uncomment last line)
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-
---set monitor's resolution
-xrandr | grep connected
-xrandr --output monitor_name --mode 1920x1080
