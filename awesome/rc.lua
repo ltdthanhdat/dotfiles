@@ -1,5 +1,18 @@
+-- Auto startup
+-- --------------------------------------------
+-- --------------------------------------------
+-- Scale monitor
 os.execute("xrdb -merge ~/.Xresources")
--- os.execute("picom -b")
+-- Run ibus 
+os.execute("export GTM_IM_MODULE=ibus")
+os.execute("export XMODIFIERS=@im=ibus")
+os.execute("export QT_IM_MODULE=ibus")
+os.execute("ibus-daemon -drx")
+-- --------------------------------------------
+-- --------------------------------------------
+
+
+
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -72,7 +85,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
-    awful.layout.suit.floating,
+    -- awful.layout.suit.floating,
     -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
@@ -191,9 +204,45 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        filter  = awful.widget.tasklist.filter.focused,
+        buttons = tasklist_buttons,
     }
+
+    -- Show task list like windows 11
+    -- --------------------------------------------
+    -- --------------------------------------------
+    -- s.mytasklist = awful.widget.tasklist {
+    --     screen   = s,
+    --     filter   = awful.widget.tasklist.filter.currenttags,
+    --     buttons  = tasklist_buttons,
+    --     -- style    = {
+    --     --     shape_border_width = 7,
+    --     --     shape_border_color = beautiful.border_focus,
+    --     --     shape  = rounded,
+    --     -- },
+    --     layout   = {
+    --         spacing = 20,
+    --         layout  = wibox.layout.flex.horizontal
+    --     },
+    --     widget_template = {
+    --                 {
+    --                     {
+    --                         {
+    --                             id = "icon_role",
+    --                             widget = wibox.widget.imagebox,
+    --                         },
+    --                         margins = 3,
+    --                         widget = wibox.container.margin,
+    --                     },
+    --                     margins = 0,
+    --                     widget = wibox.container.margin
+    --                 },
+    --                 id = "background_role",
+    --                 widget = wibox.container.background,
+    --     },
+    -- }
+    -- --------------------------------------------
+    -- --------------------------------------------
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
@@ -201,6 +250,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
+        -- expand = "none",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             -- mylauncher,
@@ -563,10 +613,32 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- Round corner
 
--- client.connect_signal("manage", function (c)
---   c.shape = function(cr, w, h)
---     gears.shape.rounded_rect(cr, w, h, 10)
---       end
--- end)
+-- Round corner
+-- --------------------------------------------
+-- --------------------------------------------
+local function rounded_corners(c)
+    c.shape = function(cr,w,h)
+      gears.shape.rounded_rect(cr,w,h,11)
+    end
+end
+
+local function squared_corners(c)
+    c.shape = gears.shape.rectangle
+end
+
+local function set_good_corners(c)
+    if c.maximized or c.fullscreen then
+      squared_corners(c)
+      c.border_width = 0
+    else
+      rounded_corners(c)
+      c.border_width = 2.5
+    end
+end
+
+client.connect_signal("manage", function (c) set_good_corners(c) end)
+client.connect_signal("property::fullscreen", function(c) set_good_corners(c) end)
+client.connect_signal("property::maximized", function(c) set_good_corners(c) end)
+-- --------------------------------------------
+-- --------------------------------------------
