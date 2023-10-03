@@ -11,21 +11,24 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "FiraCode Nerd Font Mono Bold 9"
+-- theme.font          = "FiraCode Nerd Font Mono Bold 9"
+theme.font          = "FiraCode Nerd Font Bold 9"
 
 theme.bg_normal     = "#1a1b26"
-theme.bg_focus      = "#414868"
-theme.bg_urgent     = "#ff0000"
+-- theme.bg_focus      = "#414868"
+theme.bg_focus      = "#1a1b26"
+theme.bg_urgent     = "#FF6969"
 theme.bg_minimize   = "#565f89"
 theme.bg_systray    = theme.bg_normal
 theme.tasklist_disable_icon = true
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
+-- theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#ffffff"
+theme.fg_focus      = "#AED2FF"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(4)
+theme.useless_gap   = dpi(3)
 theme.border_width  = dpi(2)
 theme.border_normal = "#0C356A"
 theme.border_focus  = "#337CCF"
@@ -98,7 +101,8 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "~/.config/awesome/default/background.jpg"
+-- theme.wallpaper = "~/.config/awesome/default/wallpaper/4.jpg"
+theme.wallpaper = "~/.config/awesome/default/wallpaper/6.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
