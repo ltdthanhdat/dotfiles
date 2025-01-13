@@ -1,0 +1,112 @@
+{
+    "editor.formatOnSave": true,
+    "editor.fontSize": 15,
+    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono , Consolas",
+    "editor.minimap.autohide": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "python.createEnvironment.trigger": "off",
+    "editor.lineNumbers": "relative",
+    "workbench.settings.applyToAllProfiles": [],
+    // ============
+    // vim settings
+    // ============
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "#a9dc7660",
+    "vim.highlightedyank.duration": 250,
+    "vim.insertModeKeyBindings": [],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // ; activate command mode
+        {
+            "before": [
+                ";"
+            ],
+            "after": [
+                ":"
+            ]
+        },
+        // up down and centering
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "j",
+                "z",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "k",
+                "z",
+                "z"
+            ]
+        },
+        // file explorer
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.view.explorer",
+            ]
+        },
+        // search file
+        {
+            "before": [
+                "leader",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen",
+            ]
+        },
+        // moving around buffers
+        {
+            "before": [
+                "leader",
+                "n"
+            ],
+            "commands": [
+                ":bn"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "p"
+            ],
+            "commands": [
+                ":bp"
+            ]
+        },
+    ],
+    // disable keys
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-b>": false,
+        "<C-f>": false,
+        // "<C-n>": false,
+        // "<C-w>": false,
+        // "<C-h>": false,
+        // "<C-d>": false,
+    },
+    // ===============
+    // end vim setting
+    // ===============
+    "editor.accessibilitySupport": "off",
+    "workbench.activityBar.location": "top",
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "One Sandbox Dark"
+}
