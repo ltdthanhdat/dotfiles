@@ -24,3 +24,10 @@ vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { noremap = true, silent = t
 -- buffers
 vim.keymap.set('n', '<leader>n', ':bn<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>p', ':bp<CR>', { noremap = true, silent = true })
+
+-- map leader x to MoltenEvaluateLine and MoltenEvaluatVisual
+vim.keymap.set('n', '<leader>e', ':MoltenEvaluateLine<CR>', { noremap = true, silent = true })
+vim.keymap.set("v", "<localleader>e", ":<C-u>MoltenEvaluateVisual<CR>",
+	{ silent = true, desc = "evaluate visual selection" })
+vim.keymap.set("n", "<localleader>re", ":MoltenReevaluateCell<CR>",
+	{ silent = true, desc = "re-evaluate cell" })
