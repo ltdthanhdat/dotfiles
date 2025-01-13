@@ -1,0 +1,22 @@
+{
+	"name": "Vimium C",
+	"@time": "9/30/2024, 9:59:01 AM",
+	"time": 1727665141885,
+	"environment": {
+		"extension": "2.11.3",
+		"platform": "win",
+		"chromium": 129
+	},
+	"exclusionRules": [
+		{
+			"passKeys": "< > j k l t ",
+			"pattern": ":https://www.youtube.com/"
+		},
+		{
+			"passKeys": "/ <c-e> T i m ",
+			"pattern": ":"
+		}
+	],
+	"keyLayout": 2,
+	"vimSync": true
+}
