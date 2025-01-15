@@ -10,8 +10,8 @@ return {
 		-- optionally enable 24-bit colour
 		vim.opt.termguicolors = true
 
-		-- empty setup using defaults
-		require("nvim-tree").setup()
+		-- keymap
+		vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 		-- OR setup with some options
 		require("nvim-tree").setup({
