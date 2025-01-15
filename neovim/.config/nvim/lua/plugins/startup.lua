@@ -9,7 +9,7 @@ local header = {
 		[[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
 		[[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
 	},
-	position = "center"
+	position = "left"
 }
 
 return {
@@ -20,7 +20,7 @@ return {
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.startify")
 		dashboard.file_icons.provider = "devicons"
-		dashboard.section.header.val = header.val
+		-- dashboard.section.header.val = header.val
 		dashboard.section.header.opts.position = header.position
 		alpha.setup(dashboard.opts)
 	end,
