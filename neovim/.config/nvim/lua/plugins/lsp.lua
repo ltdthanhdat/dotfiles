@@ -23,6 +23,13 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			vim.diagnostic.config({
+				virtual_text = false, -- thông báo trong dòng
+				signs = false, -- dấu hiệu bên cạnh số dòng
+				underline = false, -- gạch chân
+				update_in_insert = false, -- cập nhật khi đang nhập liệu
+			})
+
 			local lspconfig = require('lspconfig')
 			lspconfig.html.setup {}
 			lspconfig.cssls.setup {}
