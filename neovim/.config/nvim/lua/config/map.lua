@@ -14,5 +14,5 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- buffers
 vim.keymap.set('n', '<leader>n', ':bn<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>p', ':bp<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>b', ':bp<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', ':bd<CR>', { noremap = true, silent = true })
