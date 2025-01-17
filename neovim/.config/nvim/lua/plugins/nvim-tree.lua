@@ -15,6 +15,8 @@ return {
 
 		-- OR setup with some options
 		require("nvim-tree").setup({
+			-- update nvim tree when directory changes
+			update_cwd = true,
 			sort = {
 				sorter = "case_sensitive",
 			},
