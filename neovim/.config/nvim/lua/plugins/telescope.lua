@@ -6,7 +6,13 @@ return {
 	config = function()
 		require('telescope').setup({
 			defaults = {
-				file_ignore_patterns = { ".git/" }
+				file_ignore_patterns = {
+					".git/", "__pycache__",
+					"airflow/logs",
+					"minio/data",
+					"dremio/data",
+					"nessie/data"
+				}
 			}
 		})
 		local builtin = require('telescope.builtin')
