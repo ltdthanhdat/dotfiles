@@ -13,6 +13,6 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- buffers
-vim.keymap.set('n', '<leader>n', ':bn<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>b', ':bp<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>q', ':bd<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>n', ':bn<CR>', { noremap = true, silent = true, desc = "next buffer" })
+vim.keymap.set('n', '<leader>b', ':bp<CR>', { noremap = true, silent = true, desc = "previous buffer" })
+vim.keymap.set('n', '<leader>q', ':bd<CR>', { noremap = true, silent = true, desc = "close buffer" })

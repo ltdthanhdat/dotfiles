@@ -18,7 +18,7 @@ return
 	},
 	config = function(_, opts)
 		require("projectmgr").setup(opts)
-		vim.api.nvim_set_keymap("n", "<leader>p", ":ProjectMgr<CR>", {})
+		vim.api.nvim_set_keymap("n", "<leader>p", ":ProjectMgr<CR>", { desc = "Project manager" })
 		vim.api.nvim_create_autocmd("DirChanged", {
 			callback = function()
 				-- Kiểm tra nếu buffer hiện tại không phải là Alpha hoặc hợp lệ

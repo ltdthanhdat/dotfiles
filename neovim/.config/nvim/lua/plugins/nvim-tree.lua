@@ -11,7 +11,8 @@ return {
 		vim.opt.termguicolors = true
 
 		-- keymap
-		vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+		vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>',
+			{ noremap = true, silent = true, desc = "toggle nvim-tree" })
 
 		-- OR setup with some options
 		require("nvim-tree").setup({
